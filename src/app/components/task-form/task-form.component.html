@@ -1,0 +1,22 @@
+<div class="task-form">
+  <h3>{{ task ? 'Edit Task' : 'Add Task' }}</h3>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Task Title</label>
+      <input type="text" id="title" formControlName="title" class="form-control" placeholder="Enter task title">
+      <div *ngIf="taskForm.get('title')?.invalid && taskForm.get('title')?.touched" class="text-danger">
+        Task title is required.
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" id="completed" formControlName="completed" class="form-check-input">
+      <label class="form-check-label" for="completed">Completed</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">
+      {{ task ? 'Update Task' : 'Add Task' }}
+    </button>
+  </form>
+</div>

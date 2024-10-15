@@ -1,0 +1,8 @@
+<div class="task-item p-2 mb-2 border rounded" @fadeIn>
+  <h5>{{ task.title }}</h5>
+  <button class="btn btn-sm" [class.btn-success]="task.completed" [class.btn-secondary]="!task.completed"
+    [class.completed]="task.completed" (click)="onToggle()">
+    {{ task.completed ? 'Completed' : 'Incomplete' }}
+  </button>
+  <button (click)="onDelete()" class="btn btn-danger">Delete</button>
+</div>
